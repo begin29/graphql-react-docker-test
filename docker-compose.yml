@@ -10,7 +10,6 @@ services:
       - 54321:5432
   backend:
     build: backend
-    user: ${CURRENT_UID}
     command: bundle exec rails s
     depends_on:
       - db
