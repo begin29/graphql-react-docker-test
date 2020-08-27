@@ -1,5 +1,6 @@
 class Story < ApplicationRecord
   has_many :articles
 
-  validates_presence_of :name
+  validates :name, presence: true, length: { minimum: 2, maximum: 255 }
+  validates :articles, length: { minimum: 1 }
 end
