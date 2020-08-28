@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# story = FactoryBot.build(:story)
+articles = FactoryBot.create_list(:article, 5)
+
+FactoryBot.create(:story, articles: articles.first(3))

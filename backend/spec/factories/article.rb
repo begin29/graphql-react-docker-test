@@ -11,9 +11,5 @@ FactoryBot.define do
     trait :tweet do
       article_type { 'tweeter' }
     end
-
-    after(:build) do |article|
-      article.story = build(:story, articles: [article])
-    end
   end
 end

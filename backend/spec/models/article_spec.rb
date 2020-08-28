@@ -9,17 +9,10 @@ describe Article do
     end
 
     context 'story' do
-      context 'when present' do
-        it 'valid' do
-          expect(article.story).to be_present
-          expect(article).to be_valid
-        end
-      end
-
       context 'when missing' do
-        it 'invalid' do
+        it 'valid' do
           article.story_id = nil
-          expect(article).to be_invalid
+          expect(article).to be_valid
         end
       end
     end
