@@ -15,7 +15,11 @@ services:
       - db
     volumes:
       - ./backend:/usr/src/backend-app
+      - bundle_cache:/usr/src/bundle_cache
     ports:
-      - 3002:3000
+      - "3002:3000"
     env_file:
       - .env
+
+volumes:
+  bundle_cache:
