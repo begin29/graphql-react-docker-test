@@ -38,7 +38,7 @@ module Resolvers
 
         context 'search by name or text' do
           it 'gets grouped by story totals' do
-            new_articles.each{|article| article.update(text: 'Lorem abc XYZ')}
+            new_articles.each { |article| article.update(text: 'Lorem abc XYZ') }
             post '/graphql', params: { query: request_query(search: 'ABC') }
 
             expect(
@@ -89,7 +89,7 @@ module Resolvers
           end
         end
 
-        def request_query(search: "", order_by: "")
+        def request_query(search: '', order_by: '')
           <<~GQL
             {
               groupByStoryArticles(search: "#{search}", orderBy: "#{order_by}") {

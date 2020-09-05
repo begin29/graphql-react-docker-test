@@ -14,8 +14,6 @@ module Resolvers
         end
       end
 
-      private
-
       def self.count_of_atricles_types(articles)
         articles.group_by(&:article_type).map do |article_type, grouped_articles|
           {

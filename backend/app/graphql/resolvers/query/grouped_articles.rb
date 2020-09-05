@@ -6,7 +6,7 @@ module Resolvers
 
         field_name = args[:grouped_by]
         if Article.attribute_names.include?(field_name)
-          scope.group_by{|article| article.public_send(field_name)}.map do |field_value, articles|
+          scope.group_by { |article| article.public_send(field_name) }.map do |field_value, articles|
             {
               field_name: field_name,
               field_value: field_value,

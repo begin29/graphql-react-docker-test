@@ -23,7 +23,7 @@ shared_examples 'name_validation' do
 
     context 'when very long' do
       it 'invalid' do
-        subject.name = 'A'*256
+        subject.name = 'A' * 256
         expect(subject).to be_invalid
       end
     end

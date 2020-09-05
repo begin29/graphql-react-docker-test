@@ -100,10 +100,10 @@ module Resolvers
 
         def article_by_id_from(response, id)
           data = JSON.parse(response)['data']['articles']
-          data.detect{ |rec| rec['id'].to_i == id }
+          data.detect { |rec| rec['id'].to_i == id }
         end
 
-        def request_query(search: "", order_by: "")
+        def request_query(search: '', order_by: '')
           <<~GQL
             {
               articles(search: "#{search}", orderBy: "#{order_by}") {

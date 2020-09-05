@@ -49,7 +49,6 @@ module Resolvers
             )
           end
 
-
           it 'group by text with search by name' do
             new_articles = create_list(:article, 2, text: 'Unique TEXT')
             matched_article = new_articles.first
@@ -79,7 +78,7 @@ module Resolvers
           end
         end
 
-        def request_query(search: "", order_by: "", grouped_by: "")
+        def request_query(search: '', order_by: '', grouped_by: '')
           <<~GQL
             {
               groupedArticles(search: "#{search}", orderBy: "#{order_by}", groupedBy: "#{grouped_by}") {
