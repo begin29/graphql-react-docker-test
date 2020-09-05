@@ -172,10 +172,6 @@ GEM
     rubocop-ast (0.3.0)
       parser (>= 2.7.1.4)
     ruby-progressbar (1.10.1)
-    search_object (1.2.4)
-    search_object_graphql (0.3.2)
-      graphql (~> 1.8)
-      search_object (~> 1.2.2)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -212,7 +208,6 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.2)
   rspec-rails (~> 4.0.1)
   rubocop (~> 0.89.1)
-  search_object_graphql (~> 0.3.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
