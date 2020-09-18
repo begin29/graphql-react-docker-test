@@ -8,15 +8,14 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/backend/log/*
+/backend/tmp/*
+!/backend/log/.keep
+!/backend/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+/backend/tmp/pids/*
+!/backend/tmp/pids/.keep
 
 # Ignore uploaded files in development.
 /backend/storage/*
@@ -26,4 +25,10 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/db_data/*
+!/db_data/.keep
+
 .env
+
+/frontend/node_modules/*
+!/frontend/node_modules/.keep
