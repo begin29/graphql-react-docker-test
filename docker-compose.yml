@@ -3,19 +3,20 @@ services:
   db:
     image: postgres
     volumes:
-      - /var/lib/postgresql/data
+      - ./db_data:/var/lib/postgresql/data
     env_file:
       - .env
     ports:
       - 54321:5432
   backend:
     build: backend
-    command: bundle exec rails s
+    links:
+      - db
     depends_on:
       - db
     volumes:
       - ./backend:/usr/src/backend-app
-      - bundle_cache:/usr/src/bundle_cache
+      - ./backend/tmp/bundle_cache:/usr/src/bundle_cache
     ports:
       - "3002:3000"
     env_file:
@@ -23,3 +24,5 @@ services:
 
 volumes:
   bundle_cache:
+  node_modules:
+  db_data:

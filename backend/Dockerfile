@@ -24,13 +24,15 @@ ADD Gemfile.lock /usr/src/backend-app/Gemfile.lock
 RUN chown -R rails:rails /usr/src
 
 COPY ./docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh && \
+    chown rails:rails /docker-entrypoint.sh
 
 USER rails
 
 RUN bundle install --jobs 20 --retry 5
+
 ADD . /usr/src/backend-app
 
 EXPOSE 3000
 
-CMD ["/docker-entrypoint.sh"]
+CMD ["/docker-entrypoint.sh", "rails s"]
