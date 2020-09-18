@@ -21,7 +21,22 @@ module Resolvers
       def self.order_by(scope, ordered_filed)
         ordered_filed, order_direction = ordered_filed.split(' ')
         order_direction = order_direction.in?(%w[asc desc]) ? order_direction : :asc
-        scope = scope.order(ordered_filed => order_direction) if Article.attribute_names.include?(ordered_filed)
+
+        if Article.attribute_names.include?(ordered_filed)
+          scope = scope.order(ordered_filed => order_direction)
+        elsif ordered_filed.include?('.')
+          scope = order_by_relation(scope, order_direction, *ordered_filed.split('.'))
+        end
+        scope
+      end
+
+      private
+
+      def self.order_by_relation(scope, order_direction, relation_name, field_name)
+        return scope unless Article.reflect_on_all_associations.map(&:name).include?(relation_name.to_sym)
+        if relation_name.humanize.constantize.attribute_names.include?(field_name)
+          scope = scope.left_outer_joins(relation_name.to_sym).order("#{relation_name.pluralize}.#{field_name} #{order_direction}")
+        end
         scope
       end
     end

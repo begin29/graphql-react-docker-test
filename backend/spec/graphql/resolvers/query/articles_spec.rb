@@ -83,6 +83,22 @@ module Resolvers
             )
           end
 
+          context 'order by relation value' do
+            it 'by story name desc' do
+              new_article = create(:article, name: 'ZZZ')
+              post '/graphql', params: { query: request_query(order_by: 'story.name desc') }
+
+              expect(
+                JSON.parse(response.body)['data']['articles']
+              ).to match(
+                [
+                  expected_article_response(new_article),
+                  expected_article_response(article)
+                ]
+              )
+            end
+          end
+
           it 'by unknown field returns order by created time in asc order' do
             new_article = create(:article)
             post '/graphql', params: { query: request_query(order_by: 'text asc') }
