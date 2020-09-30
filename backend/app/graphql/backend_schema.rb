@@ -8,4 +8,7 @@ class BackendSchema < GraphQL::Schema
 
   # Add built-in connections for pagination
   use GraphQL::Pagination::Connections
+
+  use GraphQL::Subscriptions::ActionCableSubscriptions, redis: Redis.new(url: ENV.fetch("REDIS_URL", "redis://localhost:6379/0") )
+  subscription(Types::SubscriptionType)
 end

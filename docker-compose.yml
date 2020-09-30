@@ -12,8 +12,10 @@ services:
     build: backend
     links:
       - db
+      - redis
     depends_on:
       - db
+      - redis
     volumes:
       - ./backend:/usr/src/backend-app
       - ./backend/tmp/bundle_cache:/usr/src/bundle_cache
@@ -21,6 +23,19 @@ services:
       - "3002:3000"
     env_file:
       - .env
+  frontend:
+    build: frontend
+    ports:
+      - "3003:3000"
+      - "9229:9229"
+    stdin_open: true
+    volumes:
+      # - node_modules:/usr/src/frontend-app/node_modules
+      - ./frontend:/usr/src/frontend-app
+  redis:
+    image: "redis:alpine"
+    ports:
+      - '6379:6379'
 
 volumes:
   bundle_cache:
