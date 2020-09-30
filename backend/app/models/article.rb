@@ -8,6 +8,6 @@ class Article < ApplicationRecord
 
   private
   def notify_subscribers
-    BackendSchema.subscriptions.trigger("newMessage", {}, self)
+    BackendSchema.subscriptions.trigger("newArticle", {}, self)
   end
 end
