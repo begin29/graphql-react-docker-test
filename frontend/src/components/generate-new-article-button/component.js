@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import ReactDOM from 'react-dom';
 import { gql, useMutation } from '@apollo/client';
 import faker from 'faker'
 

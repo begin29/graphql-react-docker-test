@@ -7,7 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { HttpLink, ApolloLink, ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { onError } from "@apollo/client/link/error";
 
 import ActionCable from 'actioncable';
 import { ActionCableLink } from 'graphql-ruby-client';

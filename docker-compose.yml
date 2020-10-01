@@ -34,7 +34,6 @@ services:
       - "9229:9229"
     stdin_open: true
     volumes:
-      # - node_modules:/usr/src/frontend-app/node_modules
       - ./frontend:/usr/src/frontend-app
     env_file:
       - .env

@@ -1,5 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Fragment, useState } from 'react';
 
 import Row from 'react-bootstrap/Row';
 import SearchInput from './search-input/component';
@@ -17,12 +16,12 @@ export default function MainBody() {
 
   const tableComponent = () => {
     switch (tableName) {
-      case 'Articles':
-        return <ArticlesTable search={search} />;
       case 'ArticlesGroupBy':
         return <GroupedArticlesTable search={search} groupByField={groupByField} />;
       case 'GroupedByStory':
         return <GroupedByStoryTable search={search} />;
+      default:
+        return <ArticlesTable search={search} />;
     }
   }
 

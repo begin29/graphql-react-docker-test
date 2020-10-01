@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import ReactDOM from 'react-dom';
 
 export default function SearchInput({ setSearch }) {
   const [searchValue, setSearchValue] = useState('');

@@ -1,5 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Fragment } from 'react';
 import './style.css'
 
 export default function GroupBySelect({setTableName, setGroupByField}) {
