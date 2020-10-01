@@ -10,6 +10,8 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN echo "gem: --no-rdoc --no-ri" > /etc/gemrc
 
 RUN mkdir /usr/src/backend-app
+RUN mkdir /usr/src/bundle_cache
+
 WORKDIR /usr/src/backend-app
 
 RUN gem install bundler
