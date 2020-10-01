@@ -1,8 +1,7 @@
 #!/bin/sh
 set -e
 
-unset BUNDLE_PATH
-unset BUNDLE_BIN
+bundle check || bundle install
 
 if [ -f tmp/pids/server.pid ]; then
   rm tmp/pids/server.pid

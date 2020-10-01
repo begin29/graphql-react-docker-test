@@ -9,17 +9,12 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo "gem: --no-rdoc --no-ri" > /etc/gemrc
 
-RUN mkdir /usr/src/bundle_cache
-ENV GEM_HOME="/usr/src/bundle_cache"
-ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
-
 RUN mkdir /usr/src/backend-app
 WORKDIR /usr/src/backend-app
 
 RUN gem install bundler
 
-ADD Gemfile /usr/src/backend-app/Gemfile
-ADD Gemfile.lock /usr/src/backend-app/Gemfile.lock
+ADD . /usr/src/backend-app
 
 RUN chown -R rails:rails /usr/src
 
@@ -29,10 +24,8 @@ RUN chmod +x /docker-entrypoint.sh && \
 
 USER rails
 
-RUN bundle install --jobs 20 --retry 5
-
-ADD . /usr/src/backend-app
+ENV BUNDLE_PATH /usr/src/bundle_cache
 
 EXPOSE 3000
 
-CMD ["/docker-entrypoint.sh", "rails s"]
+CMD ["/docker-entrypoint.sh", "rails s -e production"]
