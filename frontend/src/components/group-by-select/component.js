@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import './style.css'
 
 export default function GroupBySelect({setTableName, setGroupByField}) {
   const handleChange = (e) => {
@@ -17,7 +18,7 @@ export default function GroupBySelect({setTableName, setGroupByField}) {
 
   return (
     <Fragment>
-      <select onChange={(e) => handleChange(e)}>
+      <select id='group-by-select' onChange={(e) => handleChange(e)}>
         <option value="">Clear Group</option>
         <optgroup label="Group By Article fields">
           <option value="id">ID</option>
