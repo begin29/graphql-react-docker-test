@@ -32,6 +32,8 @@ services:
     volumes:
       # - node_modules:/usr/src/frontend-app/node_modules
       - ./frontend:/usr/src/frontend-app
+    env_file:
+      - .env
   redis:
     image: "redis:alpine"
     ports:

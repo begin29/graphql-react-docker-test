@@ -12,10 +12,10 @@ import { onError } from "@apollo/client/link/error";
 import ActionCable from 'actioncable';
 import { ActionCableLink } from 'graphql-ruby-client';
 
-const cable = ActionCable.createConsumer("ws://stl.me:3002/cable")
+const cable = ActionCable.createConsumer(`ws://${process.env.REACT_APP_HOST_NAME}:3002/cable`)
 
 const httpLink = new HttpLink({
-  uri: 'http://stl.me:3002/graphql'
+  uri: `http://${process.env.REACT_APP_HOST_NAME}:3002/graphql`
   // credentials: 'included'
 });
 

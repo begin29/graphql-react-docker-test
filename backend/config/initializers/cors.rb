@@ -7,22 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
-    # origins 'stl.me:3003'
-    # origins '*'
-    # TODO: change that rule
-    # resource '*', headers: :any, methods: [:get, :post, :patch, :put]
+    origins "#{ENV['REACT_APP_HOST_NAME']}:3003"
+
     resource '*',
       headers: :any,
       methods: [:get, :post, :patch, :put]
       #, credentials: true
   end
-
-  # allow do
-    # origins 'example.com'
-
-    # resource '*',
-      # headers: :any,
-      # methods: [:get, :post, :put, :patch, :delete, :options, :head]
-  # end
 end
