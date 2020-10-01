@@ -8,7 +8,9 @@ services:
       - .env
     ports:
       - 54321:5432
+    restart: always
   backend:
+    image: scompler-test_backend
     build: backend
     links:
       - db
@@ -23,7 +25,9 @@ services:
       - "3002:3000"
     env_file:
       - .env
+    restart: always
   frontend:
+    image: scompler-test_frontend
     build: frontend
     ports:
       - "3003:3000"
@@ -34,10 +38,12 @@ services:
       - ./frontend:/usr/src/frontend-app
     env_file:
       - .env
+    restart: always
   redis:
     image: "redis:alpine"
     ports:
       - '6379:6379'
+    restart: always
 
 volumes:
   bundle_cache:
