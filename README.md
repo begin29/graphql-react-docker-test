@@ -1,7 +1,7 @@
 # scompler-test
 
 ## General usage
-Open http://134.249.119.219:3003/ page to see the main project test with already created articles.
+Open http://159.89.1.152:3003/ page to see the main project test with already created articles.
 
 ### Sort
 Links on table headers are clickable and provide sort by columns. It works only on the main articles table and does not work for grouped representation.
